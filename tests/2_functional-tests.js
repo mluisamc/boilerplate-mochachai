@@ -32,11 +32,11 @@ suite('Functional Tests', function () {
         });
     });
     // #3
-    test('Send {name:"Cristoforo", surname: "Colombo"}', function (done) {
+    test('Send {surname: "Colombo"}', function (done) {
       chai
         .request(server)
         .put('/travellers')
-
+        .send({ surname: 'Colombo' })
         .end(function (err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
